@@ -3,6 +3,7 @@ use smartcore::abi::messages::{ClientRequest, DaemonResponse};
 use smartcore::abi::protocol::{deserialize_request, serialize_response};
 use smartcore::cache::state_cache::StateCache;
 use smartcore::engine::{preexec, precmd};
+use std::fs;
 
 #[cfg(unix)]
 pub async fn start_server(socket_path: &str, cache: StateCache) -> Result<(), String> {
