@@ -1,15 +1,9 @@
-﻿name: Release
+name: Release
 
 on:
   push:
     tags:
       - 'v*'
-
-permissions:
-  contents: write
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build-and-release:
@@ -18,7 +12,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: ubuntu-24.04
+          - os: ubuntu-latest
             target: x86_64-unknown-linux-gnu
             archive: tar.gz
           - os: macos-latest
@@ -62,6 +56,6 @@ jobs:
           Compress-Archive -Path * -DestinationPath ../smart_term-${{ matrix.target }}.zip
 
       - name: Upload Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v1
         with:
           files: smart_term-${{ matrix.target }}.${{ matrix.archive }}

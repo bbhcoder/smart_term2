@@ -1,5 +1,5 @@
 use clap::{Parser, Subcommand};
-use commands::{hook, interactive};
+use commands::{hook, interactive, update};
 
 pub mod commands;
 pub mod ipc;
@@ -24,6 +24,7 @@ pub enum Commands {
     Init {
         shell_name: String,
     },
+    Update,
 }
 
 #[derive(Subcommand)]
@@ -52,5 +53,6 @@ fn main() {
             };
             print!("{}", script);
         }
+        Commands::Update => update::execute(),
     }
 }
