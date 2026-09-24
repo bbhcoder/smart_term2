@@ -1,3 +1,4 @@
+# SmartTerm Windows Installer Script
 $ErrorActionPreference = "Stop"
 
 $Repo = "bbhcoder/smart_term2"
