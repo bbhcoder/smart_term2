@@ -1,0 +1,14 @@
+[workspace]
+members = [
+    "db",
+    "smartcore",
+    "shell",
+    "cli",
+    "smartd"
+]
+resolver = "2"
+
+[workspace.package]
+version = "2.0.0"
+edition = "2021"
+authors = ["Arsalan Shoaei Ahmad Abad <arsalanshoaei@gmail.com>"]
