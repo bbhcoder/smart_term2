@@ -1,4 +1,4 @@
-﻿$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Stop"
 
 $Repo = "bbhcoder/smart_term2"
 $Target = "x86_64-pc-windows-msvc"
