@@ -9,6 +9,6 @@ members = [
 resolver = "2"
 
 [workspace.package]
-version = "2.0.0"
+version = "1.1.0"
 edition = "2021"
 authors = ["Arsalan Shoaei Ahmad Abad <arsalanshoaei@gmail.com>"]
