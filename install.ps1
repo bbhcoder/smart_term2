@@ -1,8 +1,10 @@
 # SmartTerm Windows Installer Script
 $ErrorActionPreference = "Stop"
+
 $Repo = "bbhcoder/smart_term2"
 $Target = "x86_64-pc-windows-msvc"
 $Url = "https://github.com/$Repo/releases/latest/download/smart_term-$Target.zip"
+
 $InstallDir = "$env:LOCALAPPDATA\SmartTerm"
 $TempZip = "$env:TEMP\smart_term.zip"
 
@@ -18,6 +20,8 @@ Write-Host "Adding to PATH..." -ForegroundColor Yellow
 $UserPath = [Environment]::GetEnvironmentVariable("PATH", "User")
 if ($UserPath -notmatch [regex]::Escape($InstallDir)) {
     [Environment]::SetEnvironmentVariable("PATH", "$UserPath;$InstallDir", "User")
+    # Update PATH for the current session instantly
+    $env:PATH = "$env:PATH;$InstallDir"
 }
 
 $ProfilePath = $PROFILE
@@ -32,4 +36,4 @@ if ($ProfileContent -notmatch "smart init powershell") {
     Write-Host "Hook added to PowerShell profile: $ProfilePath" -ForegroundColor Green
 }
 
-Write-Host "SmartTerm installed successfully! Please restart your terminal." -ForegroundColor Green
+Write-Host "SmartTerm installed successfully! You can now use 'smart' and 'smartd' commands." -ForegroundColor Green
