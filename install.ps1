@@ -1,10 +1,8 @@
 # SmartTerm Windows Installer Script
 $ErrorActionPreference = "Stop"
-
 $Repo = "bbhcoder/smart_term2"
 $Target = "x86_64-pc-windows-msvc"
 $Url = "https://github.com/$Repo/releases/latest/download/smart_term-$Target.zip"
-
 $InstallDir = "$env:LOCALAPPDATA\SmartTerm"
 $TempZip = "$env:TEMP\smart_term.zip"
 
