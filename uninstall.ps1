@@ -1,5 +1,10 @@
 $ErrorActionPreference = "Stop"
 Write-Host "Uninstalling SmartTerm..." -ForegroundColor Red
+
+Stop-Process -Name "smartd" -Force -ErrorAction SilentlyContinue
+Stop-Process -Name "smart" -Force -ErrorAction SilentlyContinue
+Start-Sleep -Seconds 1
+
 $InstallDir = "$env:LOCALAPPDATA\SmartTerm"
 if (Test-Path $InstallDir) {
     Remove-Item -Path $InstallDir -Recurse -Force
