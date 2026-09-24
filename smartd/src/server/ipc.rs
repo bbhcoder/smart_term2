@@ -7,6 +7,7 @@ use smartcore::engine::{preexec, precmd};
 #[cfg(unix)]
 pub async fn start_server(socket_path: &str, cache: StateCache) -> Result<(), String> {
     use tokio::net::UnixListener;
+    use std::fs;
     let _ = fs::remove_file(socket_path);
     let listener = UnixListener::bind(socket_path).map_err(|e| e.to_string())?;
     loop {
